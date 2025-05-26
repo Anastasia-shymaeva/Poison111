@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poison</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&family=Marcellus+SC&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hedvig Letters Sans', sans-serif;
+        }
+        
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Marcellus SC', serif;
+            font-size: 60px;
+            color: #000000;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-menu a {
+            font-size: 24px;
+            color: #000000;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            opacity: 0.7;
+        }
+        
+        .icon-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .icon-buttons a {
+            font-size: 24px;
+            color: #000000;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .icon-buttons a:hover {
+            opacity: 0.7;
+        }
+
+
+
+
+/* Блок с изображением */
+.hero-image {
+            max-width: 1280px;
+            height: 559px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Чтобы изображение заполняло блок без искажений */
+            display: block;
+        }
+
+
+
+
+
+
+
+/* Footer Styles */
+.footer {
+            width: 1280px;
+            height: 459px;
+            background-color: #D9D9D9;
+            margin: 87px auto 0;
+            padding: 60px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .footer-columns {
+            display: flex;
+            gap: 80px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #000000;
+        }
+
+        .footer-link {
+            font-size: 18px;
+            color: #000000;
+            text-decoration: none;
+            margin-bottom: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .footer-link:hover {
+            opacity: 0.7;
+        }
+
+        .call-us-button {
+            width: 269px;
+            height: 61px;
+            background-color: #4A784B;
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+            position: absolute;
+            right: 60px;
+            top: 60px;
+        }
+
+        .call-us-button:hover {
+            box-shadow: inset 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+        }
+
+
+
+
+
+
+
+     /* Man */
+     .collection-section {
+            max-width: 1280px;
+            margin: 34px auto 0;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .collection-title {
+            font-size: 52px;
+            margin-bottom: 34px;
+        }
+        
+        .text-blocks-container {
+            display: flex;
+            justify-content: center;
+            gap: 79px;
+            margin-top: 34px;
+        }
+        
+        .text-block {
+            font-size: 36px;
+            color: #000;
+            cursor: pointer;
+            position: relative;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .text-block::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #000;
+            transition: width 0.3s ease;
+        }
+        
+        .text-block:hover::after {
+            width: 100%;
+        }
+        
+        .text-block.active {
+            font-weight: bold;
+        }
+        
+        .text-block:hover {
+            transform: translateY(-5px);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* Gallery Section */
+ .gallery-section {
+            max-width: 1280px;
+            margin: 34px auto 0;
+            padding: 0 20px;
+        }
+
+        .gallery-row {
+            display: flex;
+            justify-content: center;
+            gap: 79px;
+            margin-bottom: 79px;
+        }
+
+        .gallery-item {
+            width: 555px;
+            height: 743px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+
+        .gallery-image.hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .gallery-item:hover .gallery-image.default {
+            opacity: 0;
+        }
+
+        .gallery-item:hover .gallery-image.hover {
+            opacity: 1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* Footer Styles */
+ .footer {
+            width: 1280px;
+            height: 459px;
+            background-color: #D9D9D9;
+            margin: 87px auto 0;
+            padding: 60px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .footer-columns {
+            display: flex;
+            gap: 80px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #000000;
+        }
+
+        .footer-link {
+            font-size: 18px;
+            color: #000000;
+            text-decoration: none;
+            margin-bottom: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .footer-link:hover {
+            opacity: 0.7;
+        }
+
+        .call-us-button {
+            width: 269px;
+            height: 61px;
+            background-color: #4A784B;
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+            position: absolute;
+            right: 60px;
+            top: 60px;
+        }
+
+        .call-us-button:hover {
+            box-shadow: inset 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Poison</a>
+            
+            <nav class="nav-menu">
+                <a href="man.html">Man</a>
+                <a href="Woman_osn.html">Woman</a>
+                <a href="ACCESORIES.html">Accessories</a>
+                <a href="contacts.html">Contact</a>
+            </nav>
+            
+            <div class="icon-buttons">
+                  <a href="favorites.html" class="favorites-link"><img src="фотографии\Сердце.png" height="24"> <span id="favoritesCount">0</span></a>
+                <a href="checkout.html"><img src="фотографии\корзина.png" height="24"></a>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+<!-- Блок с изображением -->
+<div class="hero-image">
+   
+    <img src="фотографии\часы.PNG" alt="Fashion Banner" width="1280" height="559">
+</div>
+
+
+
+
+
+
+
+<!-- Accessories -->
+<div class="collection-section">
+    <h1 class="collection-title">Accessories</h1>
+    
+    <div class="text-blocks-container">
+        <div class="text-block" data-target="category1">Bags</div>
+        <div class="text-block" data-target="category2">Watches</div>
+        <div class="text-block" data-target="category3">Bracelts</div>
+        </div>
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- Gallery Section -->
+<div class="gallery-section">
+    <div class="gallery-row">
+        <!-- Первая пара изображений -->
+        <div class="gallery-item" data-product-id="22" 
+             data-product-name="Ремень с цепью" 
+             data-product-price="75$"
+             data-product-image="ACCESORIES/Rectangle 1_1.JPG">
+            <img src="ACCESORIES/Rectangle 1_1.JPG" alt="Кожаная куртка" class="product-image">
+            <img src="ACCESORIES/Rectangle 1_2.JPG" alt="Product 1 Hover" class="gallery-image hover">
+        </div>
+        
+        <div class="gallery-item" data-product-id="23" 
+             data-product-name="Панма" 
+             data-product-price="31$"
+             data-product-image="ACCESORIES/Rectangle 2_1.JPG">
+            <img src="ACCESORIES/Rectangle 2_1.JPG" alt="Product 2" class="gallery-image default">
+            <img src="ACCESORIES/Rectangle 2_2.JPG" alt="Product 2 Hover" class="gallery-image hover">
+        </div>
+    </div>
+    
+    <div class="gallery-row">
+        <!-- Вторая пара изображений -->
+        <div class="gallery-item" data-product-id="24" 
+             data-product-name="Ремень" 
+             data-product-price="36$"
+             data-product-image="ACCESORIES/Rectangle 3_1.JPG">
+            <img src="ACCESORIES/Rectangle 3_1.JPG" alt="Product 3" class="gallery-image default">
+            <img src="ACCESORIES/Rectangle 3_2.JPG" alt="Product 3 Hover" class="gallery-image hover">
+        </div>
+        
+        <div class="gallery-item" data-product-id="25" 
+             data-product-name="Цепочка крест" 
+             data-product-price="56$"
+             data-product-image="ACCESORIES/Rectangle 4_1.JPG">
+            <img src="ACCESORIES/Rectangle 4_1.JPG" alt="Product 4" class="gallery-image default">
+            <img src="ACCESORIES/Rectangle 4_2.JPG" alt="Product 4 Hover" class="gallery-image hover">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-columns">
+        <!-- Column 1 -->
+        <div class="footer-column">
+            <h3 class="footer-heading">Customer care</h3>
+            <a href="#" class="footer-link">Contact us</a>
+            <a href="#" class="footer-link">Shipping</a>
+            <a href="#" class="footer-link">Track your order</a>
+            <a href="#" class="footer-link">Repairs</a>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-column">
+            <h3 class="footer-heading">Santoni world</h3>
+            <a href="#" class="footer-link">IWS</a>
+            <a href="#" class="footer-link">ISO 19912</a>
+            <a href="#" class="footer-link">Carl project</a>
+            <a href="#" class="footer-link">Calzare 3001</a>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-column">
+            <h3 class="footer-heading">Legale area</h3>
+            <a href="#" class="footer-link">Website terms</a>
+            <a href="#" class="footer-link">Privacy policy</a>
+            <a href="#" class="footer-link">Accessibility</a>
+            <a href="#" class="footer-link">ISO 19912</a>
+            <a href="#" class="footer-link">Repairs</a>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-column">
+            <h3 class="footer-heading">Customer care</h3>
+            <a href="#" class="footer-link">Instagram</a>
+            <a href="#" class="footer-link">Facebook</a>
+            <a href="#" class="footer-link">Pinterest</a>
+            <a href="#" class="footer-link">Linkedin</a>
+        </div>
+    </div>
+
+    <!-- Call Us Button -->
+    <a href="contacts.html" class="call-us-button">Call us</a>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+<script>
+   
+   
+   
+   
+   
+   
+   
+
+
+
+
+
+
+
+
+   
+   document.addEventListener('DOMContentLoaded', function() {
+    // Обработчик клика по карточке товара
+    document.querySelectorAll('.gallery-item').forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Проверяем, что кликнули именно на карточку, а не на кнопку внутри
+            if (e.target.closest('.add-to-cart')) return;
+            
+            // Получаем данные товара
+            const productId = this.getAttribute('data-product-id');
+            const productName = this.getAttribute('data-product-name');
+            const productPrice = this.getAttribute('data-product-price');
+            const productImage = this.getAttribute('data-product-image');
+            
+            // Сохраняем данные товара для страницы продукта
+            const productData = {
+                id: productId,
+                name: productName,
+                price: productPrice,
+                image: productImage
+            };
+            
+            localStorage.setItem('currentProduct', JSON.stringify(productData));
+            
+            // Переходим на страницу товара
+            window.location.href = 'ACCESORIES_Bags.html';
+        });
+    });
+});
+   
+   
+   
+   
+   
+   
+   // это добавление в избранное !    
+// В файле main.js или в <script> в конце body
+    document.addEventListener('DOMContentLoaded', function() {
+    // Обработчики для всех кнопок "В избранное"
+    document.querySelectorAll('.add-to-favorites').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const productId = this.getAttribute('data-product-id');
+            addToFavorites(productId);
+        });
+    });
+});
+
+function addToFavorites(productId) {
+    // Получаем текущие избранные товары
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+    // Проверяем, нет ли уже этого товара
+    if (!favorites.includes(productId)) {
+        favorites.push(productId);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        
+        // Визуальный фидбэк
+        alert('Товар добавлен в избранное!');
+    } else {
+        alert('Этот товар уже в избранном');
+    }
+}
+
+
+function updateFavoritesCount() {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const countElement = document.getElementById('favoritesCount');
+    if (countElement) {
+        countElement.textContent = favorites.length;
+    }
+}
+
+// Вызывать после добавления/удаления
+updateFavoritesCount();
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    const textBlocks = document.querySelectorAll('.text-block');
+    
+    // Создаем объект с соответствием блоков и страниц
+    const pageLinks = {
+        'category1': 'ACCESORIES_Bags.html',
+        'category2': 'ACCESORIES_Watches.html',
+        'category3': 'ACCESORIES_Bracelets.html'
+    };
+    
+    textBlocks.forEach(block => {
+        block.addEventListener('click', function() {
+            const targetCategory = this.getAttribute('data-target');
+            // Переход на соответствующую страницу
+            window.location.href = pageLinks[targetCategory];
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+// Обработчики для галереи
+document.querySelectorAll('.gallery-item').forEach(item => {
+            // Переход при клике
+            item.addEventListener('click', function() {
+                const targetPage = this.getAttribute('data-target');
+                // Анимация перед переходом
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    window.location.href = targetPage;
+                }, 200);
+            });
+            
+            // Дополнительные эффекты при наведении
+            item.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.boxShadow = 'none';
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+
+
+
+</script>
+
+
+
+</html>

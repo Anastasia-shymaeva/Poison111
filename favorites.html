@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poison</title>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    <!-- Такие же мета-теги и стили, как в основном файле -->
+    <style>
+
+
+
+
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hedvig Letters Sans', sans-serif;
+        }
+        
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+         font-family: 'Marcellus SC', serif;
+            font-size: 60px;
+            color: #000000;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-menu a {
+            font-size: 24px;
+            color: #000000;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            opacity: 0.7;
+        }
+        
+        .icon-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .icon-buttons a {
+            font-size: 24px;
+            color: #000000;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .icon-buttons a:hover {
+            opacity: 0.7;
+        }
+
+/* Блок с изображением */
+.hero-image {
+            max-width: 1280px;
+            height: 559px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Чтобы изображение заполняло блок без искажений */
+            display: block;
+        }
+
+
+/* Блок с галереей  */
+        .content-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Заголовок */
+        .collection-title {
+            font-size: 52px;
+            margin-top: 34px;
+            margin-bottom: 34px;
+            text-align: center;
+        }
+
+        /* Галерея товаров */
+        .products-gallery {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .product-item {
+            width: 363px;
+            height: 459px;
+            position: relative;
+            box-shadow: 4px 4px 9.6px 4px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-item:hover {
+            box-shadow: none;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-buttons {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 62px;
+        }
+
+        .product-button {
+            width: 92px;
+            height: 92px;
+            background-color: #4A784B;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-button:hover {
+            box-shadow: inset 9px 10px 9px 0 rgba(0, 32, 27, 0.25);
+        }
+
+        .product-button img {
+            width: 54px;
+            height: 54px;
+            filter: brightness(0) saturate(100%) invert(94%) sepia(5%) saturate(209%) hue-rotate(201deg) brightness(89%) contrast(84%);
+        }
+
+
+
+
+
+
+/* кнопка для добавления в избранное */
+
+.add-to-favorites {
+            width: 92px;
+            height: 92px;
+            background-color: #4A784B;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+
+
+
+        .add-to-favorites :hover {
+            box-shadow: inset 9px 10px 9px 0 rgba(0, 32, 27, 0.25);
+        }
+
+
+        .add-to-favorites img {
+            width: 54px;
+            height: 54px;
+            filter: brightness(0) saturate(100%) invert(94%) sepia(5%) saturate(209%) hue-rotate(201deg) brightness(89%) contrast(84%);
+        }
+
+
+        /* Кнопка */
+        .view-all-button {
+            display: block;
+            width: 269px;
+            height: 61px;
+            background-color: #4A784B;
+            border-radius: 14px;
+            margin: 36px auto 0;
+            text-align: center;
+            line-height: 61px;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .view-all-button:hover {
+            box-shadow: inset 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+        }
+
+
+
+        
+/* Previous styles remain unchanged */
+        
+        /* New Shows section */
+        .shows-section {
+            max-width: 1280px;
+            margin: 124px auto 0;
+            padding: 0 20px;
+        }
+        
+        .shows-title {
+            font-size: 52px;
+            margin-bottom: 36px;
+            text-align: center;
+        }
+        
+        .shows-frame {
+            width: 1131px;
+            height: 831px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        
+        .shows-scroll-container {
+            display: flex;
+            width: calc(1131px * 7); /* 7 images width */
+            height: 100%;
+            animation: scroll 49s linear infinite; /* 7 images * 7 seconds */
+        }
+        
+        .shows-image {
+            width: 1131px;
+            height: 831px;
+            object-fit: cover;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 52px;
+        }
+        
+        .scroll-line {
+            width: 473px;
+            height: 7px;
+            background-color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            margin-top: 10px;
+        }
+        
+        .scroll-line::before,
+        .scroll-line::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .scroll-line::before {
+            border-width: 10px 15px 10px 0;
+            border-color: transparent rgba(255, 255, 255, 0.7) transparent transparent;
+            left: -15px;
+        }
+        
+        .scroll-line::after {
+            border-width: 10px 0 10px 15px;
+            border-color: transparent transparent transparent rgba(255, 255, 255, 0.7);
+            right: -15px;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-1131px * 6)); /* Move 6 images */
+            }
+        }
+        
+
+
+
+
+
+ /* Footer Styles */
+ .footer {
+            width: 1280px;
+            height: 459px;
+            background-color: #D9D9D9;
+            margin: 87px auto 0;
+            padding: 60px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .footer-columns {
+            display: flex;
+            gap: 80px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #000000;
+        }
+
+        .footer-link {
+            font-size: 18px;
+            color: #000000;
+            text-decoration: none;
+            margin-bottom: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .footer-link:hover {
+            opacity: 0.7;
+        }
+
+        .call-us-button {
+            width: 269px;
+            height: 61px;
+            background-color: #4A784B;
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+            position: absolute;
+            right: 60px;
+            top: 60px;
+        }
+
+        .call-us-button:hover {
+            box-shadow: inset 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .favorites-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .favorite-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .remove-favorite {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Контейнер для избранного */
+.favorites-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 34px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(363px, 1fr));
+            gap: 34px;
+        }
+        
+        /* Карточка товара */
+        .favorite-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .favorite-image {
+            width: 363px;
+            height: 459px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .favorite-image:hover {
+            transform: translateY(-5px);
+        }
+        
+        .favorite-info {
+            text-align: center;
+            width: 100%;
+        }
+        
+        .favorite-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        
+        .favorite-price {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .buy-button {
+            width: 100%;
+            padding: 12px 0;
+            background-color: #4A784B;
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        
+        .buy-button:hover {
+            background-color: #3a5d3b;
+            box-shadow: inset 2px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        
+        .empty-favorites {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 24px;
+            padding: 50px 0;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .favorites-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            
+            .favorite-image {
+                width: 100%;
+                height: auto;
+                max-height: 459px;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .checkout-section {
+    max-width: 1280px;
+    margin: 34px auto;
+    padding: 0 34px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.total-price {
+    font-size: 24px;
+    color: #333;
+}
+
+.checkout-button {
+    padding: 15px 30px;
+    background-color: #4A784B;
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.checkout-button:hover {
+    background-color: #3a5d3b;
+    box-shadow: inset 2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    <!-- Шапка сайта (как в основном файле) -->
+
+
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Poison</a>
+            
+            <nav class="nav-menu">
+                <a href="man.html">Man</a>
+                <a href="Woman_osn.html">Woman</a>
+                <a href="ACCESORIES_Bags.html">Accessories</a>
+                <a href="contacts.html">Contact</a>
+            </nav>
+            
+            <div class="icon-buttons">
+                <a href="favorites.html" class="favorites-link"><img src="фотографии\Сердце.png" height="24"> <span id="favoritesCount">0</span></a>
+                <a href="checkout.html"><img src="фотографии\корзина.png" height="24"></a>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+    
+    <div class="favorites-container" id="favoritesList">
+        <!-- Товары будут загружаться здесь -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+<!-- После блока favorites-container -->
+<div class="checkout-section">
+    <div class="total-price" >
+        Итого: <span id="totalSum">0$</span>
+    </div>
+    <button class="checkout-button" id="checkoutButton" >Оплатить заказ</button>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-columns">
+        <!-- Column 1 -->
+        <div class="footer-column">
+            <h3 class="footer-heading">Customer care</h3>
+            <a href="#" class="footer-link">Contact us</a>
+            <a href="#" class="footer-link">Shipping</a>
+            <a href="#" class="footer-link">Track your order</a>
+            <a href="#" class="footer-link">Repairs</a>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-column">
+            <h3 class="footer-heading">Santoni world</h3>
+            <a href="#" class="footer-link">IWS</a>
+            <a href="#" class="footer-link">ISO 19912</a>
+            <a href="#" class="footer-link">Carl project</a>
+            <a href="#" class="footer-link">Calzare 3001</a>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-column">
+            <h3 class="footer-heading">Legale area</h3>
+            <a href="#" class="footer-link">Website terms</a>
+            <a href="#" class="footer-link">Privacy policy</a>
+            <a href="#" class="footer-link">Accessibility</a>
+            <a href="#" class="footer-link">ISO 19912</a>
+            <a href="#" class="footer-link">Repairs</a>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-column">
+            <h3 class="footer-heading">Customer care</h3>
+            <a href="#" class="footer-link">Instagram</a>
+            <a href="#" class="footer-link">Facebook</a>
+            <a href="#" class="footer-link">Pinterest</a>
+            <a href="#" class="footer-link">Linkedin</a>
+        </div>
+    </div>
+
+    <!-- Call Us Button -->
+    <a href="contacts.html" class="call-us-button">Call us</a>
+</footer>
+
+
+
+
+
+
+
+    <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+// это добавление в избранное !    
+// В файле main.js или в <script> в конце body
+    document.addEventListener('DOMContentLoaded', function() {
+    // Обработчики для всех кнопок "В избранное"
+    document.querySelectorAll('.add-to-favorites').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const productId = this.getAttribute('data-product-id');
+            addToFavorites(productId);
+        });
+    });
+});
+
+function addToFavorites(productId) {
+    // Получаем текущие избранные товары
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+    // Проверяем, нет ли уже этого товара
+    if (!favorites.includes(productId)) {
+        favorites.push(productId);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        
+        // Визуальный фидбэк
+        alert('Товар добавлен в избранное!');
+    } else {
+        alert('Этот товар уже в избранном');
+    }
+}
+
+
+function updateFavoritesCount() {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const countElement = document.getElementById('favoritesCount');
+    if (countElement) {
+        countElement.textContent = favorites.length;
+    }
+}
+
+// Вызывать после добавления/удаления
+updateFavoritesCount();
+
+
+
+
+
+
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const container = document.getElementById('favoritesList');
+            
+            if (favorites.length === 0) {
+                container.innerHTML = '<p>В избранном пока нет товаров</p>';
+                return;
+            }
+            
+            // Здесь должен быть запрос к API или база данных товаров
+            // Для примера используем mock-данные
+            const products = {
+                '1': { name: 'Джинсы',
+                 price: '199$', 
+                 priceValue: 199,
+                 image: 'фотографии/1ый продукт.JPG',
+                 link: 'checkout.html'
+                },
+                '2': { name: 'Юбка', price: '112.3$',  priceValue: 112.3, image: 'фотографии/2ой продукт.JPG',link: 'checkout.html' },
+                '3': { name: 'Рубашка', price: '87$', priceValue: 87, image: 'фотографии/3ий продукт.JPG' ,link: 'checkout.html' },
+                '4': { name: 'Костюм', price: '450$',  priceValue: 112.3, image: 'contacts/id_4.JPG',link: 'checkout.html' },
+                '5': { name: 'Штаны', price: '140$',  priceValue: 112.3, image: 'contacts/id_5.JPG',link: 'checkout.html' },
+                '6': { name: 'Серый костюм', price: '570$',  priceValue: 112.3, image: 'contacts/id_6.JPG',link: 'checkout.html' },
+            };
+            
+
+
+
+
+
+
+            
+            favorites.forEach(productId => {
+                const product = products[productId];
+                if (product) {
+                    const item = document.createElement('div');
+                    item.className = 'favorite-item';
+                    item.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" width="200">
+                        <h3>${product.name}</h3>
+                        <p>${product.price}</p>
+                        
+
+                        <button class="remove-favorite" data-product-id="${productId}">Удалить</button>
+                        <button class="buy-button" onclick="window.location.href='${product.link}'">Купить</button>
+                    `;
+                    container.appendChild(item);
+                }
+
+                
+            });
+
+            
+            
+            // Обработчик удаления
+            document.querySelectorAll('.remove-favorite').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-product-id');
+                    removeFromFavorites(productId);
+                    this.closest('.favorite-item').remove();
+                    
+                    if (container.children.length === 0) {
+                        container.innerHTML = '<p>В избранном пока нет товаров</p>';
+                    }
+                });
+            });
+
+
+
+
+            
+
+            
+
+
+
+            // Обработчик кнопки оплаты
+    
+            document.getElementById('checkoutButton').addEventListener('click', function() {
+        // Сохраняем выбранные товары для страницы оплаты
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        localStorage.setItem('checkoutProducts', JSON.stringify(favorites));
+        
+        // Переход на страницу оплаты
+        window.location.href = 'checkout.html';
+    });
+
+
+       function calculateTotal() {
+    
+        const products = document.querySelectorAll('.favorite-item');
+    
+        let total = 0;
+    
+    
+        products.forEach(item => {
+        const priceText = item.querySelector('.favorite-price').textContent;
+        const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+        total += price;
+    });
+    
+    document.getElementById('totalSum').textContent = total.toFixed(2) + '$';
+    
+    // Прячем блок, если нет товаров
+    const checkoutSection = document.querySelector('.checkout-section');
+    checkoutSection.style.display = products.length ? 'flex' : 'none';
+}
+
+    
+ });
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        function removeFromFavorites(productId) {
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            favorites = favorites.filter(id => id !== productId);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+        }
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

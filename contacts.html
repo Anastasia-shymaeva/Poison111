@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Poison</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&family=Marcellus+SC&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hedvig Letters Sans', sans-serif;
+        }
+        
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Marcellus SC', serif;
+            font-size: 60px;
+            color: #000000;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-menu a {
+            font-size: 24px;
+            color: #000000;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            opacity: 0.7;
+        }
+        
+        .icon-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .icon-buttons a {
+            font-size: 24px;
+            color: #000000;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .icon-buttons a:hover {
+            opacity: 0.7;
+        }
+
+/* Блок с изображением */
+.hero-image {
+            max-width: 1280px;
+            height: 559px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Чтобы изображение заполняло блок без искажений */
+            display: block;
+        }
+
+
+/* Блок с галереей  */
+        .content-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Заголовок */
+        .collection-title {
+            font-size: 52px;
+            margin-top: 34px;
+            margin-bottom: 34px;
+            text-align: center;
+        }
+
+        /* Галерея товаров */
+        .products-gallery {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .product-item {
+            width: 363px;
+            height: 459px;
+            position: relative;
+            box-shadow: 4px 4px 9.6px 4px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-item:hover {
+            box-shadow: none;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-buttons {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 62px;
+        }
+
+        .product-button {
+            width: 92px;
+            height: 92px;
+            background-color: #4A784B;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-button:hover {
+            box-shadow: inset 9px 10px 9px 0 rgba(0, 32, 27, 0.25);
+        }
+
+        .product-button img {
+            width: 54px;
+            height: 54px;
+            filter: brightness(0) saturate(100%) invert(94%) sepia(5%) saturate(209%) hue-rotate(201deg) brightness(89%) contrast(84%);
+        }
+
+
+
+
+
+
+/* кнопка для добавления в избранное */
+
+.add-to-favorites {
+            width: 92px;
+            height: 92px;
+            background-color: #4A784B;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+
+
+
+        .add-to-favorites :hover {
+            box-shadow: inset 9px 10px 9px 0 rgba(0, 32, 27, 0.25);
+        }
+
+
+        .add-to-favorites img {
+            width: 54px;
+            height: 54px;
+            filter: brightness(0) saturate(100%) invert(94%) sepia(5%) saturate(209%) hue-rotate(201deg) brightness(89%) contrast(84%);
+        }
+
+
+        /* Кнопка */
+        .view-all-button {
+            display: block;
+            width: 269px;
+            height: 61px;
+            background-color: #4A784B;
+            border-radius: 14px;
+            margin: 36px auto 0;
+            text-align: center;
+            line-height: 61px;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .view-all-button:hover {
+            box-shadow: inset 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+        }
+
+
+
+        
+/* Previous styles remain unchanged */
+        
+        /* New Shows section */
+        .shows-section {
+            max-width: 1280px;
+            margin: 124px auto 0;
+            padding: 0 20px;
+        }
+        
+        .shows-title {
+            font-size: 52px;
+            margin-bottom: 36px;
+            text-align: center;
+        }
+        
+        .shows-frame {
+            width: 1131px;
+            height: 831px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        
+        .shows-scroll-container {
+            display: flex;
+            width: calc(1131px * 7); /* 7 images width */
+            height: 100%;
+            animation: scroll 49s linear infinite; /* 7 images * 7 seconds */
+        }
+        
+        .shows-image {
+            width: 1131px;
+            height: 831px;
+            object-fit: cover;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 52px;
+        }
+        
+        .scroll-line {
+            width: 473px;
+            height: 7px;
+            background-color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            margin-top: 10px;
+        }
+        
+        .scroll-line::before,
+        .scroll-line::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .scroll-line::before {
+            border-width: 10px 15px 10px 0;
+            border-color: transparent rgba(255, 255, 255, 0.7) transparent transparent;
+            left: -15px;
+        }
+        
+        .scroll-line::after {
+            border-width: 10px 0 10px 15px;
+            border-color: transparent transparent transparent rgba(255, 255, 255, 0.7);
+            right: -15px;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-1131px * 6)); /* Move 6 images */
+            }
+        }
+
+        
+        
+
+
+
+
+
+ /* Footer Styles */
+ .footer {
+            width: 1280px;
+            height: 459px;
+            background-color: #D9D9D9;
+            margin: 87px auto 0;
+            padding: 60px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .footer-columns {
+            display: flex;
+            gap: 80px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #000000;
+        }
+
+        .footer-link {
+            font-size: 18px;
+            color: #000000;
+            text-decoration: none;
+            margin-bottom: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .footer-link:hover {
+            opacity: 0.7;
+        }
+
+        .call-us-button {
+            width: 269px;
+            height: 61px;
+            background-color: #4A784B;
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+            position: absolute;
+            right: 60px;
+            top: 60px;
+        }
+
+        .call-us-button:hover {
+            box-shadow: inset 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+        }
+
+
+       .contacts {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.contacts .overlap-group-wrapper {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 1280px;
+  height: 456px;
+}
+
+.contacts .overlap-group {
+  position: relative;
+  width: 1310px;
+  height: 456px;
+  left: -16px;
+  background-color: #dae0da;
+}
+
+.contacts .overlap {
+  position: absolute;
+  width: 459px;
+  height: 352px;
+  top: 52px;
+  left: 763px;
+  background-color: #ffffff;
+}
+
+.contacts .text-wrapper {
+  position: absolute;
+  top: 42px;
+  left: 54px;
+  font-family: "Hedvig Letters Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contacts .div {
+  position: absolute;
+  top: 127px;
+  left: 109px;
+  font-family: "Hedvig Letters Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contacts .text-wrapper-2 {
+  top: 177px;
+  position: absolute;
+  left: 109px;
+  font-family: "Hedvig Letters Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contacts .text-wrapper-3 {
+  position: absolute;
+  top: 227px;
+  left: 109px;
+  font-family: "Hedvig Letters Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contacts .element {
+  top: 277px;
+  position: absolute;
+  left: 109px;
+  font-family: "Hedvig Letters Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contacts .email {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 120px;
+  left: 59px;
+}
+
+.contacts .address {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 220px;
+  left: 60px;
+}
+
+.contacts .clock {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 270px;
+  left: 60px;
+}
+
+.contacts .phone {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 170px;
+  left: 59px;
+}
+
+.contacts .text-wrapper-4 {
+  position: absolute;
+  top: 24px;
+  left: 91px;
+  font-family: "Hedvig Letters Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contacts .text-wrapper-5 {
+  position: absolute;
+  top: 119px;
+  left: 91px;
+  font-family: "Hedvig Letters Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contacts .text-wrapper-6 {
+  position: absolute;
+  top: 203px;
+  left: 91px;
+  font-family: "Hedvig Letters Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contacts .text-wrapper-7 {
+  position: absolute;
+  top: 287px;
+  left: 91px;
+  font-family: "Hedvig Letters Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contacts .component {
+  display: flex;
+  width: 137px;
+  height: 41px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 47px;
+  position: absolute;
+  top: 384px;
+  left: 87px;
+  background-color: #4a784b;
+  border-radius: 5px;
+  box-shadow: 2px 4px 4px #02381040;
+}
+
+.contacts .buy {
+  position: relative;
+  width: fit-content;
+  margin-top: -0.50px;
+  margin-left: -6.50px;
+  margin-right: -6.50px;
+  font-family: "Hedvig Letters Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #dae0da;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.input-field {
+  position: absolute;
+  width: 363px;
+  height: 35px;
+  padding: 8px 12px;
+  left: 91px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.textarea-field {
+  position: absolute;
+  width: 363px;
+  height: 35x;
+  padding: 8px 12px;
+  left: 91px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+}
+
+/* Позиционирование */
+.input-field:nth-of-type(1) { top: 144px; }
+.input-field:nth-of-type(2) { top: 228px; }
+.textarea-field { top: 312px; }
+
+
+</style>
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Poison</a>
+            
+            <nav class="nav-menu">
+                <a href="man.html">Man</a>
+                <a href="Woman_osn.html">Woman</a>
+                <a href="ACCESORIES_Bags.html">Accessories</a>
+                <a href="contacts.html">Contact</a>
+            </nav>
+            
+            <div class="icon-buttons">
+                <a href="favorites.html" class="favorites-link"><img src="фотографии\Сердце.png" height="24"> <span id="favoritesCount">0</span></a>
+                <a href="checkout.html"><img src="фотографии\корзина.png" height="24"></a>
+            </div>
+        </div>
+    </header>
+
+
+<!-- Блок с изображением -->
+<div class="hero-image">
+   
+ <div class="contacts">
+      <div class="overlap-group-wrapper">
+        
+        <div class="overlap-group">
+          <div class="overlap">
+            <div class="text-wrapper">Info</div>
+            <div class="div">info21@gmail.com</div>
+            <div class="text-wrapper-2">+21 41 21 145</div>
+            <div class="text-wrapper-3">14 grecentore St</div>
+            <div class="element">09:00&nbsp;&nbsp; - 18.00</div>
+            <img class="email" src="contacts/email_n1bfuabbybkk 1.svg" />
+            <img class="address" src="contacts/address_g4mclj8kjsvy 1.svg" />
+            <img class="clock" src="contacts/clock_kzujk1gokfss 1.svg" />
+            <img class="phone" src="contacts/phone_4p6sliw1vxrt 1.svg" />
+          </div>
+          <div class="text-wrapper-4">Contact us</div>
+          <div class="text-wrapper-5">Name</div>
+          <input type="text" class="input-field" placeholder="Enter your name">
+          <div class="text-wrapper-6">Email</div>
+          <input type="email" class="input-field" placeholder="Enter your email">
+          <div class="text-wrapper-7">Message</div>
+          <textarea class="textarea-field" placeholder="Enter your message"></textarea>
+          <div class="component" id="sendButton">
+    <a href="#" class="buy" onclick="sendForm()">Send</a>
+</div>
+          
+        </div>
+      </div>
+    </div>
+  
+</div>
+
+
+
+<!-- Блок с галереей -->
+<div class="content-container">
+    <h1 class="collection-title">Popular</h1>
+    
+    <div class="products-gallery">
+        <!-- Товар 1 -->
+        <div class="product-item"data-product-id="11" 
+             data-product-name="Темно-синие джинсы" 
+             data-product-price="129$"
+             data-product-image="фотографии\1ый продукт.JPG">
+            <img src="contacts\id_4.JPG" alt="Product 1" class="product-image">
+            <div class="product-buttons">
+                <a href="checkout.html" class="product-button">
+                    <img src="фотографии\корзина.png" alt="Icon">
+                </a>
+                <a href="add-to-cart.html" class="add-to-favorites" data-product-id="4">
+                    <img src="фотографии\Сердце.png" alt="Icon">
+                </a>
+            </div>
+        </div>
+        
+        <!-- Товар 2 -->
+        <div class="product-item">
+            <img src="contacts\id_5.JPG" alt="Product 5" class="product-image" >
+            <div class="product-buttons" >
+                <a href="checkout.html" class="product-button">
+                    <img src="фотографии\корзина.png" alt="Icon"> 
+                </a>
+                <a href="add-to-cart.html" class="add-to-favorites" data-product-id="5">
+                    <img src="фотографии\Сердце.png" alt="Icon">
+                </a>
+
+
+                
+            </div>
+        </div>
+        
+        <!-- Товар 3 -->
+        <div class="product-item">
+            <img src="contacts\id_6.JPG" alt="Product 6" class="product-image">
+            <div class="product-buttons">
+                <a href="checkout.html" class="product-button">
+                    <img src="фотографии\корзина.png" alt="Icon">
+                </a>
+                <a href="add-to-cart.html" class="add-to-favorites" data-product-id="6">
+                    <img src="фотографии\Сердце.png" alt="Icon">
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <a href="Woman_jacket.html" class="view-all-button">Show more</a>
+</div>
+
+
+
+
+ <!-- Previous HTML remains unchanged -->
+    
+    <!-- Shows Section -->
+    <div class="shows-section">
+        
+        <div class="shows-frame">
+            <div class="shows-scroll-container">
+                <img src="фотографии\1 скрол.JPG" alt="Show 1" class="shows-image">
+                <img src="фотографии\2скролл.jpg" alt="Show 2" class="shows-image">
+                <img src="фотографии\3скролл.jpg" alt="Show 3" class="shows-image">
+                <img src="фотографии\4 скролл.jpg" alt="Show 4" class="shows-image">
+                <img src="фотографии\5 скролл.jpg" alt="Show 5" class="shows-image">
+                <img src="фотографии\6 скролл.jpg" alt="Show 6" class="shows-image">
+                <img src="фотографии\7скролл.jpg" alt="Show 7" class="shows-image">
+            
+        </div>
+    </div>
+
+
+
+
+<!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-columns">
+            <!-- Column 1 -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Customer care</h3>
+                <a href="#" class="footer-link">Contact us</a>
+                <a href="#" class="footer-link">Shipping</a>
+                <a href="#" class="footer-link">Track your order</a>
+                <a href="#" class="footer-link">Repairs</a>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Santoni world</h3>
+                <a href="#" class="footer-link">IWS</a>
+                <a href="#" class="footer-link">ISO 19912</a>
+                <a href="#" class="footer-link">Carl project</a>
+                <a href="#" class="footer-link">Calzare 3001</a>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Legale area</h3>
+                <a href="#" class="footer-link">Website terms</a>
+                <a href="#" class="footer-link">Privacy policy</a>
+                <a href="#" class="footer-link">Accessibility</a>
+                <a href="#" class="footer-link">ISO 19912</a>
+                <a href="#" class="footer-link">Repairs</a>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Customer care</h3>
+                <a href="#" class="footer-link">Instagram</a>
+                <a href="#" class="footer-link">Facebook</a>
+                <a href="#" class="footer-link">Pinterest</a>
+                <a href="#" class="footer-link">Linkedin</a>
+            </div>
+        </div>
+
+        <!-- Call Us Button -->
+        <a href="contacts.html" class="call-us-button">Call us</a>
+    </footer>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+
+// это добавление в избранное !    
+// В файле main.js или в <script> в конце body
+    document.addEventListener('DOMContentLoaded', function() {
+    // Обработчики для всех кнопок "В избранное"
+    document.querySelectorAll('.add-to-favorites').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const productId = this.getAttribute('data-product-id');
+            addToFavorites(productId);
+        });
+    });
+});
+
+function addToFavorites(productId) {
+    // Получаем текущие избранные товары
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+    // Проверяем, нет ли уже этого товара
+    if (!favorites.includes(productId)) {
+        favorites.push(productId);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        
+        // Визуальный фидбэк
+        alert('Товар добавлен в избранное!');
+    } else {
+        alert('Этот товар уже в избранном');
+    }
+}
+
+
+function updateFavoritesCount() {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const countElement = document.getElementById('favoritesCount');
+    if (countElement) {
+        countElement.textContent = favorites.length;
+    }
+}
+
+// Вызывать после добавления/удаления
+updateFavoritesCount();
+
+
+
+// Функция для отправки формы
+function sendForm() {
+    // Получаем значения полей формы
+    const name = document.querySelector('.input-field:nth-of-type(1)').value;
+    const email = document.querySelector('.input-field:nth-of-type(2)').value;
+    const message = document.querySelector('.textarea-field').value;
+    
+    // Проверяем, заполнены ли обязательные поля
+    if (!name || !email || !message) {
+        alert('Please fill in all fields');
+        return;
+    }
+    
+    // Сохраняем данные формы в localStorage (если нужно)
+    const formData = {
+        name: name,
+        email: email,
+        message: message,
+        timestamp: new Date().toISOString()
+    };
+    localStorage.setItem('contactFormData', JSON.stringify(formData));
+    
+    // Переходим на страницу checkout
+    window.location.href = 'checkout.html';
+}
+
+// Добавляем обработчик события для кнопки
+document.getElementById('sendButton').addEventListener('click', function(e) {
+    e.preventDefault();
+    sendForm();
+});
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
